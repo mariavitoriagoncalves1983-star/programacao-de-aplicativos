@@ -20,6 +20,7 @@ if distancia <= 50 and total > 200.00:
     valor_final = total + frete
  
 else:
+    desconto = 0.00
     valor_final = total + frete 
 
 

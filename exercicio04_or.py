@@ -5,11 +5,11 @@ frete = 50.00
 if valor_compra > 500.00 or (prime_assinatura == "S" and valor_compra > 100.00):
     frete = 00.00
     print("Parabens ganhou frete grátis!")
-    valor_compra + frete
-    print("teu valor totl é", valor_compra + frete)
+    valor_total = valor_compra + frete
+    print("teu valor total é", valor_total)
 
 else:
     frete = 50.00
-    valor_compra + frete
+    valor_total = valor_compra + frete
     print("voce nao ganhou o frete grátis")
-    
+    print("teu valor total é", valor_total)

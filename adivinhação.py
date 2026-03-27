@@ -1,0 +1,1 @@
+secreta = ["roxo", "vermelho", "preto"]

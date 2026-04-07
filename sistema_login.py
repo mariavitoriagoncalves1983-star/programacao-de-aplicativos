@@ -1,9 +1,9 @@
-secreta = ["roxo", "vermelho", "preto"]
+secreta = ["12345"]
 tentativas = 0
 acertou = False 
 
 while tentativas < 3 and not acertou:
-    palpite = input("Tente adivinhar uma cor: ")
+    palpite = input("digite uma senha: ")
     
     if palpite in secreta:
         print("Parabéns, você acertou!")
@@ -13,5 +13,5 @@ while tentativas < 3 and not acertou:
     
     tentativas += 1
 if not acertou:
-    print("Suas tentativas acabaram.")
-    print("As cores eram:", secreta)
+    print("Acesoo bloqueado.")
+    print("A senha era:", secreta)

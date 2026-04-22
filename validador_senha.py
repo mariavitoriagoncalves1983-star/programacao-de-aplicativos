@@ -1,0 +1,1 @@
+def senha_valida(senha)

@@ -1,56 +1,66 @@
 def criar_arquivo():
-    open('viagem.txt', 'w').close()
+    open('viagens.txt' , 'w').close()
 
-def adicionar_destino():
-    destino = input("Nome do destino: ")
-    with open('viagem.txt', 'a') as n:
-        n.write(destino + '/n')
-    print("Destino adicionado  lista!")
 
-def listar_destino():
-    with open('viagem.txt', 'r') as n:
-        destinos = n.readlines()
+def adicionar():
+    destino = input("Digite os lugares que deseja visitar: ")
+    with open('viagens.txt' , 'a') as m:
+        m.write(destino + '\n')
+    print("Lugares cadastrados!")
+
+def ler():
+    with open('viagens.txt' , 'r') as m:
+        lugares = m.readlines()
 
         i = 0
-        for destino in destinos:
-            print(f"{i}" - {destinos.strip()})
+        for lugar in lugares:
+            print(f"\n{i} - {lugar.strip()}")
             i += 1
 
-def editar_destino():
+def atualizar():
     ler()
-    idx = int(input("Digite o id do lugar que deseja atualizar: "))
-    novo_destino = input("Novo Destino: ")
+    idx = int(input("Digite o id do lugar que deseja alterar: "))
+    novo_lugar = input("Novo lugar: ")
 
-    with open('viagem.txt', 'r') as n:
-        linhas = n.readlines()
+    with open('viagens.txt' , 'r') as m:
+        linhas = m.readlines()
 
-    linhas[idx] = novo_destino + '/n'
 
-    with open('viagem.txt', 'w') as n:
-        f.writelines(linhas)
-    print("Destino adicionado!")
+    linhas[idx] = novo_lugar + '\n'
 
-def deletar_destino():
+    with open('viagens.txt' , 'w') as m:
+        m.writelines(linhas)
+        print("Lugar atualizado!")
+
+        
+def deletar():
     ler()
-    idx = int(input("Digite o id do lugar que deseja deletar: "))
-
-    with open('viagem.txt', 'r') as n:
-        linhas = n.readlines()
-
-    del linhas[idx]
-
-    with open('viagem.txt', "w") as n:
-        f.writelines(linhas)
-    print("Destino removido!")
+    idx = int(input("Digite o ID do lugar que deseja excluir: "))
+    
+    with open('viagens.txt', 'r') as m:
+        linhas = m.readlines()
+    
+        del linhas[idx]
+    
+    with open('viagens.txt', 'w') as m:
+        m.writelines(linhas)
+    print("Lugar removido!")
 
 while True:
-    print("\n1-Adicionar destino  | 2-Listar sugestões | 3-Editar sugestão| 4-Deletar sugestão| 5-Sair")
-    opcao =input("escolha uma opção: ")
+    print("---PLANEJADOR DE VIAGENS---")
+    print("\n1-Adicionar destino")
+    print("2-Listar Sugestões")
+    print("3-Editar Sugestão")
+    print("4-Remover Sugestão")
+    print("5-Sair")
 
-    if opcao == '1': adicionar_destino()
-    elif opcao == '2': listar_destino()
-    elif opcao == '3': editar_destino()
-    elif opcao == '4': deletar_destino()
-    elif opcao == '5': 
-        print("programa encerrado!")
-        break 
+    opcao = input("\nEscolha: ")
+
+    if opcao == '1': adicionar()
+    elif opcao == '2': ler()
+    elif opcao == '3': atualizar()
+    elif opcao == '4': deletar()
+    elif opcao == '5':
+        print("Programa encerrado!")
+        break
+

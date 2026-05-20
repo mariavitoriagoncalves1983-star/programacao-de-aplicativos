@@ -17,12 +17,12 @@ def revisar_mural():
             m += 1
 
 def editar():
-    ler()
+    revisar_mural()
     idx = int(input("Digite o id do habito que deseja mudar: "))
     novo_habito = input("Novo habito: ")
 
     with open('habitos.txt', 'r') as n:
-        linhas = f.readlines
+        linhas = n.readlines
 
     linhas[idx] = novo_habito + '/n'
 
@@ -30,7 +30,7 @@ def editar():
         n.writelines(linhas)
         print("Habito atualizado!")
 
-    def descartar_habito():
+    def deletar():
         ler()
         idx = int(input("Digite o ID do habito que deseja excluir: "))
 
@@ -44,23 +44,17 @@ def editar():
         print("Lugar removido!")   
 
 while True:
-    print("/n1 - cadastrar")
-    print("/n2 - revisar ")
+    print("/n1 - adicionar")
+    print("/n2 - ver todos")
     print("/n3 = editar")
-    print("/n4 - descartar")
+    print("/n4 - excluir")
     print("/n5 - sair ")
-
     opcao = input("Escolha: ")
 
-    if opcao == '1': cadastar()
-    elif opcao == '2': revisar()
-    elif opcao == '3': editar
-    elif opcao == '4': sair
+    if opcao == '1': cadastar_habito()
+    elif opcao == '2': revisar_mural()
+    elif opcao == '3': editar()
+    elif opcao == '4': deletar()
     elif opcao == '5':
         print("Programa encerrado!")
         break
-
-
-
-    
-

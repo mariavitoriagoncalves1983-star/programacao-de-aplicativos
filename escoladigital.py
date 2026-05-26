@@ -8,7 +8,7 @@ BANCO_DADOS = 'alunos.json'
 # funcao cadastrar os alunos
 def cadastrar():
 
-    # mostra no terminal
+    # mostra no terminal "novo cadastro"
     print("\n--- Novo Cadastro ---")
     
     # verifica se o arquivo existe
@@ -26,11 +26,11 @@ def cadastrar():
 
     # criaçao do objeto
         novo_aluno = { # abrir chave do objeto
-        "nome": input("Nome: "),
-        "telefone": input("Telefone: "),
-        "turma": input("Turma: "),
-        "idade": int(input("Idade: ")),
-        "cpf": input("CPF: ")
+        "nome": input("Nome: "), # pede nome
+        "telefone": input("Telefone: "), # pede o telefone
+        "turma": input("Turma: "), # pede a turma
+        "idade": int(input("Idade: ")), # pede a idade
+        "cpf": input("CPF: ") # pede o cpf
     } # fechar chave do objeto
 
     # adicionar os alunos ao objeto
@@ -42,13 +42,13 @@ def cadastrar():
         # escreve no arquivo
         json.dump(alunos, f, indent=4, ensure_ascii=False)
     
-    # mostrar ao terminal 
+    # mostra ao terminal "aluno cadastrado com sucesso"
     print("Aluno cadastrado com sucesso!")
 
 # funcao listar alunos
 def listar():
 
-    # mostrar ao terminal
+    # mostra ao terminal "lista de alunos"
     print("\n--- Lista de Alunos ---")
     
     # se o arquivo existir
@@ -60,7 +60,7 @@ def listar():
             # lendo o arquivo 
             alunos = json.load(f)
 
-    # se nao existir alunos      
+    # se nao existir alunos     
     else:
         alunos = []
 
@@ -128,7 +128,7 @@ def atualizar():
             # cadastrando novo cpf do aluno, ou deixando cpf antigo
             
 
-            # abrindo arquivo para sobreescrever
+            # abrindo arquivo para sobescrever
             with open(BANCO_DADOS, 'w', encoding='utf-8') as f:
 
                 # escrevendo arquivo
@@ -164,14 +164,19 @@ def excluir():
         # lendo arquivo
         alunos = json.load(f)
     
-    # nova variavel de remover aluno
+    # nova variavel de remover o id do aluno digitado
     id_busca = int(input("Digite o ID do aluno que deseja remover: "))
     
-    # nova lista
+    # cria uma nova lista que nao tem os alunos com cpf digitado 
     nova_lista = [a for a in alunos if a['id'] != id_busca]
     
+    # se a nova lista for maior, volte a lista antiga
     if len(nova_lista) < len(alunos):
+
+        # abrindo o arquivo para sobrescrever
         with open(BANCO_DADOS, 'w', encoding='utf-8') as f:
+
+            # escrevendo arquivo
             json.dump(nova_lista, f, indent=4, ensure_ascii=False)
         
         # mostrando que aluno foi removido
@@ -181,18 +186,36 @@ def excluir():
     else:
         print("Aluno não encontrado.")
 
-# funcao 
-def menu():
+# funcao de menu
+def menu(): 
+
+    # se nao, verifique se existe o arquivo
     if not os.path.exists(BANCO_DADOS):
+
+        # abrindo o arquivo para sobescrever
         with open(BANCO_DADOS, 'w', encoding='utf-8') as f:
+
+            #escreve a lista nova no arquivo
             json.dump([], f)
 
+    # criando um loop infinito
     while True:
+        # mostrando sistema escoa
         print("\n=== SISTEMA ESCOLAR ===")
+
+        # mostrando cadastrar alunp
         print("1. Cadastrar Aluno")
+
+        |# mostrando listar alunos
         print("2. Listar Alunos")
+
+        # mostrando atualizar o aluno
         print("3. Atualizar Aluno")
+
+        # mostrando excluir aluno
         print("4. Excluir Aluno")
+
+        # mostrando sair
         print("5. Sair")
         
         # variavel de escolha de opcao 
@@ -214,8 +237,9 @@ def menu():
         # se nao. se escolhida 5, quebrar codigo
 
         else: print("Opção inválida!")
-        # se nao, mostre opcao invalida 
+          # se nao, mostre opcao invalida 
 
+# mostrando menu novamento (loop infinito)
 menu()
 
 

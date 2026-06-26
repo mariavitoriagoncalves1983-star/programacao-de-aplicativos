@@ -15,6 +15,7 @@ def criar():
                     endereco_aluno TEXT,
                     cidade_aluno TEXT,
                     estado_aluno TEXT,
+                    professor_id INTEGER,
                     FOREIGN KEY (professor_id) REFERENCES professor(id)
                     )''')
 
@@ -29,7 +30,7 @@ def criar():
     estado_aluno = input("Digite o estado: ")
     comando_inserir = (f'''
                         INSERT INTO alunos (nome, telefone, turma, idade, cpf, professor_id, endereco_aluno, cidade_aluno, estado_aluno )
-                        VALUES ('{nome_aluno}', '{telefone_aluno}', '{turma_aluno}', '{idade_aluno}', '{cpf_aluno}', '{professor_id}', '{endereco_aluno}', '{cidade_aluno}', '{estado_aluno})''')
+                        VALUES ('{nome_aluno}', '{telefone_aluno}', '{turma_aluno}', {idade_aluno}, '{cpf_aluno}', {professor_id}, '{endereco_aluno}', '{cidade_aluno}', '{estado_aluno}')''')
 
     cursor.execute(comando_inserir)
     conexao.commit()
@@ -117,8 +118,6 @@ def menu():
             break
 
 menu()
-
-import sqlite3
 
 conexao = sqlite3.connect('escola_nova.db')
 cursor = conexao.cursor()

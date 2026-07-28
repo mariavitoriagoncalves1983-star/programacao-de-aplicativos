@@ -11,7 +11,8 @@ def inicializar_banco():
                 nome TEXT NOT NULL,
                 )
                 ''')
-conexao.commit()
-conexao.close()
+    
+    conexao.commit()
+    conexao.close()
 
 # Não tinha o conexao.commit(), banco de dados não foi criado

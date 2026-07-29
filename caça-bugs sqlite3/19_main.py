@@ -17,4 +17,4 @@ def buscar_dados_dinamicos(nome_tabela, id_registro):
     print(cursor.fetchone())
     conexao.close()
 
-    # Erro: O caractere ? não pode ser usado para nomes de tabela ou coluna. Ele serve apenas para valores
+    # o caractere ? não pode ser usado para nomes de tabela ou coluna. Ele serve apenas para valores

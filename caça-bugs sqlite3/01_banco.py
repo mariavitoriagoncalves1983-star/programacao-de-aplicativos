@@ -15,4 +15,6 @@ def inicializar_banco():
     conexao.commit()
     conexao.close()
 
-# Não tinha o conexao.commit(), banco de dados não foi criado
+
+    # não foi criado o banco de dados
+    # não esta salvando as informações pois não colocaram o conexao.commit() que a variavel que salva as informações no banco

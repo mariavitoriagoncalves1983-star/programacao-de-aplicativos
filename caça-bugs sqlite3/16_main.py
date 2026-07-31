@@ -12,5 +12,3 @@ def menu():
         break 
 
     # o erro é que o pass não encerra o laço while 
-
-

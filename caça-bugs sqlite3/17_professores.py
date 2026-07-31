@@ -11,7 +11,5 @@ def inserir_professor(nome, materia, cpf):
     finally: 
         conexao.close() 
 
-# no trecho cursor.execute("INSERTO INTO professores " O insert está escrito errado 
+#  no trexo cursor.execute("INSERTO INTO professores " O insert está escrito errado 
 # o except não captura o erro de sintaxe por que ele é especifico do codigo inteiro, teria que criar um novo except apenas para erro de sintaxe
-
-

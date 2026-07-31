@@ -11,6 +11,6 @@ def cadastrar_lista_alunos():
     conexao.commit()
     conexao.close()
 
-# na linha 9 trocou cursor.execute para cursor.executemany
+# Trocou cursor.execute para cursor.executemany
 
 

@@ -4,23 +4,28 @@ def criar_tabelas():
     conexao = sqlite3.connect('sistema_escola.db')
     cursor = conexao.cursor()
 
+
     cursor.execute('''
-            CREATE TABLE IF NOT EXISTS escolas (
-                id INTEGER PRIMARY KEY AUTOINCREMENT,
-                nome TEXT
-            )
-        ''')
+                   CREATE TABLE IF NOT EXISTS escolas (
+                   id INTERGER PRIMARY KEY AUTOINCREMENT,
+                   nome TEXT
+                   )''')
     
     cursor.execute('''
-            CREATE TABLE IF NOT EXISTS series (
-                id INTEGER PRIMARY KEY AUTOINCREMENT,
-                nome_serie TEXT,
-                id_escola INTERGER,
-                FOREIGN KEY (id_escola)REFERENCES escolas (id)
-            )
-        ''')
+                   CREATE TABLE IF NOT EXISTS series (
+                   id INTERGER PRIMARY KEY AUTOINCREMENT,
+                   nome_serie TEXT, 
+                   id_escola INTERGER, 
+                   FOREIGN KEY (id_escola) REFERENCES escolas(id)
+                   )
+                   ''')
+    
 
     conexao.commit()
     conexao.close()
 
-# Estava dando erro porque estava puxando uma referência de uma tabela que não existe
+    # estava dando erro pois o REFERENCES estava buscando uma referencia em uma tabela que não existe
+    
+
+
+    
